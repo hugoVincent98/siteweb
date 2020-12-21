@@ -100,6 +100,14 @@ nav {
     display: none;
 }
 
+.logo {
+    margin: auto;
+    width: 50%;
+    margin-top:1%;
+    height: 3%;
+    width: 3%;
+}
+
 /*Intro section*/
 
 .intro {
