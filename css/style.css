@@ -37,6 +37,17 @@ body {
     line-height: 1.6;
 }
 
+/*canvas animated background*/
+
+canvas{
+    background: var(--clr-light);
+    position:fixed;
+    left:0;
+    top:0;
+    z-index:-5;
+    opacity: 0.3;
+}
+
 section {
     padding: 5em;
 }
@@ -96,8 +107,13 @@ h3 {
 
 /*header*/
 
+
 nav {
     display: none;
+    background-color: none;
+}
+
+.header{
 }
 
 .logo {
@@ -111,7 +127,11 @@ nav {
 /*Intro section*/
 
 .intro {
+
     position: relative;
+    background-image: url("../image/graph.png");
+    background-repeat: no-repeat;
+    background-size: cover;    
 }
 
 .intro__img {
@@ -159,12 +179,10 @@ nav {
 
 .comp__img {
     transition: transform .2s;
-    /* Animation */
 }
 
 .comp__img:hover {
     transform: scale(1.5);
-    /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
 @media only screen and (min-device-width: 800px) {
@@ -188,6 +206,8 @@ nav {
     }
 }
 
+/*sur-moi*/
+
 .sur-moi{
     max-width: 1000px;
     margin: 0 auto;
@@ -199,6 +219,7 @@ nav {
 
 @media (min-width: 600px){
     .sur-moi{
+        background:rgba(255, 255, 255, 0.616);
         display: grid;
         grid-template-columns: 1fr 200px;
         grid-template-areas: 
@@ -231,3 +252,16 @@ nav {
         z-index: 2;
     }
 }
+
+
+@media (min-width: 600px){
+    .mes-projets{
+        background: var(--clr-light);
+    }
+}
+
+footer{
+    background: var(--clr-light);
+}
+
+
