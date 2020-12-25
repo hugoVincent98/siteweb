@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+        <title>Hugo Vincent</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awsome/5.11.2/css/all.css"
+            integrity="sha256-46qynGAKLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous">
+
+
+        <!--font-->
+        <link href="https://fonts.googleapis.com/css?family=source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap"
+            rel="stylesheet">
+
+        <link rel="stylesheet" href="./css/style.css">
+
+        <link rel="icon" type="image/png" href="./image/owl.png" />
+
+        <script src="https://kit.fontawesome.com/c830bfa7c3.js" crossorigin="anonymous"></script>
+
+
+
+    </head>
+
+    <body>
+        <canvas id="canvas1"></canvas>
+
+        <header class="header">
+            <div class="logo">
+                <img src="./image/owl.png" alt="Logo Hugo Vincent">
+            </div>
+
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger">
+
+                </span>
+
+            </button>
+
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#acceuil" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="#competences" class="nav__link">What I do</a></li>
+                    <li class="nav__item"><a href="#moi" class="nav__link">About me</a></li>
+                    <li class="nav__item"><a href="#projets" class="nav__link">My projets</a></li>
+                    <li class="nav__item"><a href="#footer" class="nav__link">Contact me</a></li>
+                    <li class="nav__item"><a href="./index.html" class="nav__link">
+                        Fr <i class="fas fa-language"></i></a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Introduction -->
+        <section class="intro" id="acceuil">
+            <h1 class="secton__title section__title--intro">
+                Hi, I am <strong>Hugo Vincent</strong>
+            </h1>
+            <p class=" section__subtitle section__subtitle--intro">Student in IT Engineering</p>
+            <img src="./image/moi.jpg" alt="une photo de Hugo Vincent" class="intro__img">
+        </section>
+
+
+        <!-- Mes competences -->
+        <section class="mes-competences" id="competences">
+            <h1 class="section__title section__title--competences">What I do</h1>
+            <div>
+                <h3></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            </div>
+            <div class="competences">
+
+                <!--competence-->
+                <div class="competence">
+                    <a href="https://www.python.org/" target="_blank">
+                        <img src="./image/py.png" alt="python" class="comp__img">
+                    </a>
+                </div>
+
+                <!--competence-->
+                <div class="competence">
+                    <a href="https://www.oracle.com/java/technologies/" target="_blank">
+                        <img src="./image/java.png" alt="java" class="comp__img">
+                    </a>
+                </div>
+
+                <!--competence-->
+                <div class="competence">
+                    <a href="https://www.oracle.com/ca-en/database/technologies/appdev/sql.html" target="_blank">
+                        <img src="./image/sql.png" alt="sql" class="comp__img"
+                            href="https://www.oracle.com/ca-en/database/technologies/appdev/sql.html">
+                    </a>
+                </div>
+
+                <!--competence-->
+                <div class="competence">
+                    <a href="https://jupyter.org/" target="_blank">
+                        <img src="./image/jupyter.png" alt="jupyter" class="comp__img">
+                    </a>
+                </div>
+
+                <!--competence-->
+                <div class="competence">
+                    <a href="https://numpy.org/" target="_blank">
+                        <img src="./image/numpy.png" alt="numpy" class="comp__img">
+                    </a>
+                </div>
+
+                <!--competence-->
+                <div class="competence">
+                    <a href="https://pandas.pydata.org/" target="_blank">
+                        <img src="./image/pandas.png" alt="pandas" class="comp__img">
+                    </a>
+                </div>
+
+                <!--competence-->
+                <div class="competence">
+                    <a href="https://matplotlib.org/" target="_blank">
+                        <img src="./image/matplotlib.svg" alt="matplotlib" class="comp__img">
+                    </a>
+                </div>
+
+                <!--competence-->
+                <div class="competence">
+                    <a href="https://scikit-learn.org/stable/" target="_blank">
+                        <img src="./image/scikit.png" alt="scikit" class="comp__img">
+                    </a>
+                </div>
+
+
+            </div>
+            <!--/competences-->
+        </section>
+
+        <!-- Sur moi -->
+        <section class="sur-moi" id="moi">
+            <h2 class="section__title section__title--moi">Who am I?</h2>
+            <p class="section__subtitle section__subtitle--moi"> Data driven & business oritented base in Montréal</p>
+
+
+            <div class="sur-moi__body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+
+            <img src="./image/moi2.jpg" alt="Hugo Vincent qui fait de la programmation" class="sur-moi__img">
+        </section>
+
+
+        <!-- Mes projets -->
+        <section class="mes-projets" id="projets">
+            <h2 class="section__title--projets">My projects</h2>
+            <p class="section__subtitle--projets"></p>
+
+            <div class="portfolio">
+
+                <!--portfolio-item-1-->
+                <a href="#" class="portfolio__item">
+                    <img src="./image/site-web.JPG" alt="" class="portfolio__img">
+                </a>
+                <!--portfolio-item-1-->
+                <a href="#" class="portfolio__item">
+                    <img src="./image/site-web.JPG" alt="" class="portfolio__img">
+                </a>
+                <!--portfolio-item-1-->
+                <a href="#" class="portfolio__item">
+                    <img src="./image/site-web.JPG" alt="" class="portfolio__img">
+                </a>
+                <!--portfolio-item-1-->
+                <a href="#" class="portfolio__item">
+                    <img src="./image/site-web.JPG" alt="" class="portfolio__img">
+                </a>
+                <!--portfolio-item-1-->
+                <a href="#" class="portfolio__item">
+                    <img src="./image/site-web.JPG" alt="" class="portfolio__img">
+                </a>
+            </div>
+        </section>
+        <!-- footer -->
+        <footer>
+
+            <a href="mailto:h.v.incent@hotmail.com" class="footer-link" id="footer">h.v.incent@hotmail.com</a>
+            <ul class="social-list">
+
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://www.linkedin.com/in/hugovincent/" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </li>
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://github.com/hugoVincent98" target="_blank">
+                        <i class="fab fa-github-alt"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <a class="language" href="./index.html">
+                Fr <i class="fas fa-language"></i>
+            </a>
+        </footer>
+
+
+        <script src='./script/background.js'></script>
+        <script src='./script/index.js'></script>
+    </body>
+
+</html>
