@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang='fr'>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+        <title>Portfolio d'Hugo Vincent</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awsome/5.11.2/css/all.css"
+            integrity="sha256-46qynGAKLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous">
+
+
+        <!--font-->
+        <link href="https://fonts.googleapis.com/css?family=source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap"
+            rel="stylesheet">
+
+        <link rel="stylesheet" href="./css/style.css">
+
+        <link rel="icon" type="image/png" href="./image/owl.png" />
+
+        <script src="https://kit.fontawesome.com/c830bfa7c3.js" crossorigin="anonymous"></script>
+
+
+
+    </head>
+
+    <body>
+        <canvas id="canvas1"></canvas>
+
+        <header class="header">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./image/owl.png" alt="Logo Hugo Vincent" href="./index.html">
+                </a>
+            </div>
+
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger">
+
+                </span>
+
+            </button>
+
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="./index.html#acceuil" class="nav__link">Acceuil</a></li>
+                    <li class="nav__item"><a href="./index.html#competences" class="nav__link">Mes compétences</a></li>
+                    <li class="nav__item"><a href="./index.html#moi" class="nav__link">Sur moi</a></li>
+                    <li class="nav__item"><a href="./index.html#projets" class="nav__link">Mes projets</a></li>
+                    <li class="nav__item"><a href="./index.html#footer" class="nav__link">Me contacter</a></li>
+                    <li class="nav__item"><a href="./en.html" class="nav__link">
+                        En <i class="fas fa-language"></i></a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Introduction -->
+        <section class="intro" id="acceuil">
+            <h1 class="secton__title section__title--intro">
+                Le <strong>LanETS</strong>
+            </h1>
+            <p class=" section__subtitle section__subtitle--intro"> Mes projets </p>
+            <img src="./image/projectIMG/logo_3d_noir.png" alt="une photo de Hugo Vincent" width="400px">
+        </section>
+
+        <div class = "portfolio-item-individual">
+            <p>Le Lan ETS est un club étudiant de l'École de technologie supérieure 
+                à Montréal organisant le plus gros "Lan party" de la côte Est de 
+                l'Amérique du Nord. Chaque année, plus de 2000 joueurs participent 
+                à différents tournois pour une chance de gagner plus de 40 000 $ en 
+                prix en argent. </p>
+            
+                <p>En 2021, le Lan ETS à fait pour une première fois une version de l'événement
+                    en ligne! Durant un mois les joueurs aurons l'occasion de compétitionner
+                    dans différentes compétitions d'e-sports.
+                </p>
+                <p>Pour ma part, je me suis surtout occupé du graphisme de l'événement et j'ai
+                    participé à l'aspect communication et marketing du LanETS.
+                </p>
+                <p>Pour plus d'information: <a href="lanets.ca" target="_blank">Lanets.ca</a></p>
+            <img src = "image/projectIMG/PWOW4930 (1).jpg" alt="">
+        </div>
+
+
+        
+        <!-- footer -->
+        <footer>
+
+            <a href="mailto:contact@hugovincent.dev" class="footer-link" id="footer">contact@hugovincent.dev</a>
+            <ul class="social-list">
+
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://www.linkedin.com/in/hugovincent/" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </li>
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://github.com/hugoVincent98" target="_blank">
+                        <i class="fab fa-github-alt"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <a class="language" href="./en.html">
+                En<i class="fas fa-language"></i>
+            </a>
+        </footer>
+
+
+        <script src='./script/background.js'></script>
+        <script src='./script/index.js'></script>
+    </body>
+
+</html>

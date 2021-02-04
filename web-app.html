@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang='fr'>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+        <title>Portfolio d'Hugo Vincent</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awsome/5.11.2/css/all.css"
+            integrity="sha256-46qynGAKLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous">
+
+
+        <!--font-->
+        <link href="https://fonts.googleapis.com/css?family=source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap"
+            rel="stylesheet">
+
+        <link rel="stylesheet" href="./css/style.css">
+
+        <link rel="icon" type="image/png" href="./image/owl.png" />
+
+        <script src="https://kit.fontawesome.com/c830bfa7c3.js" crossorigin="anonymous"></script>
+
+
+
+    </head>
+
+    <body>
+        <canvas id="canvas1"></canvas>
+
+        <header class="header">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./image/owl.png" alt="Logo Hugo Vincent" href="./index.html">
+                </a>
+            </div>
+
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger">
+
+                </span>
+
+            </button>
+
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="./index.html#acceuil" class="nav__link">Acceuil</a></li>
+                    <li class="nav__item"><a href="./index.html#competences" class="nav__link">Mes compétences</a></li>
+                    <li class="nav__item"><a href="./index.html#moi" class="nav__link">Sur moi</a></li>
+                    <li class="nav__item"><a href="./index.html#projets" class="nav__link">Mes projets</a></li>
+                    <li class="nav__item"><a href="./index.html#footer" class="nav__link">Me contacter</a></li>
+                    <li class="nav__item"><a href="./en.html" class="nav__link">
+                        En <i class="fas fa-language"></i></a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Introduction -->
+        <section class="intro" id="acceuil">
+            <h1 class="secton__title section__title--intro">
+                <strong>Application</strong> de gestion d'apprentissage
+            </h1>
+            <p class=" section__subtitle section__subtitle--intro"> Mes projets </p>
+        </section>
+
+        <div class = "portfolio-item-individual">
+            <p>Cette application web a été développée en JavaScript/Typescript avec Node.js et Express.
+                Les objectifs de ce projet étaient de développer une application de gestion d’apprentissage.</p>
+                <br>
+
+                <p>Les fonctionnalités qui ont été implémentées sont :
+                <li>Authentification des professeurs et des étudiants</li>
+                <li>La création/gestion de cours par le professeur</li>
+                <li>La création/gestion de questions par le professeur</li>
+                <li>La création/gestion de devoirs par le professeur</li>
+                <li>La Création/gestion de questionnaires par le professeur</li>
+                <li>Affichage/remplissage des devoirs par l’étudiant</li>
+                <li>Affichage/remplissage des questionnaires par l’étudiant</li>
+                <li>Correction automatique et calcul des notes</li>
+                </p>
+            
+                <p>Lors de ce projet, nous avons fait du développement dirigé par test. Plus précisément, notre objectif était d'obtenir une couverture de 90%. À la fin de ce projet, nous avons atteint une couverture de 97% avec un taux de succès de 100%.
+                </p>
+            <img src = "image/appsys/Screenshot from 2021-01-22 10-44-11.png" alt="">
+            <br>
+            <img src = "image/appsys/Screenshot from 2021-01-22 10-45-15.png" alt="">
+            <br>
+            <img src = "image/appsys/Screenshot from 2021-01-22 10-47-44.png" alt="">
+            <br>
+            <img src = "image/appsys/Screenshot from 2021-01-22 10-49-04.png" alt="">
+            <br>
+            <img src = "image/appsys/Screenshot from 2021-01-22 10-50-18.png" alt="">
+            <br>
+        </div>
+
+
+        
+        <!-- footer -->
+        <footer>
+
+            <a href="mailto:contact@hugovincent.dev" class="footer-link" id="footer">contact@hugovincent.dev</a>
+            <ul class="social-list">
+
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://www.linkedin.com/in/hugovincent/" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </li>
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://github.com/hugoVincent98" target="_blank">
+                        <i class="fab fa-github-alt"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <a class="language" href="./en.html">
+                En<i class="fas fa-language"></i>
+            </a>
+        </footer>
+
+
+        <script src='./script/background.js'></script>
+        <script src='./script/index.js'></script>
+    </body>
+
+</html>

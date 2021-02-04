@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang='fr'>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+        <title>Portfolio d'Hugo Vincent</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awsome/5.11.2/css/all.css"
+            integrity="sha256-46qynGAKLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous">
+
+
+        <!--font-->
+        <link href="https://fonts.googleapis.com/css?family=source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap"
+            rel="stylesheet">
+
+        <link rel="stylesheet" href="./css/style.css">
+
+        <link rel="icon" type="image/png" href="./image/owl.png" />
+
+        <script src="https://kit.fontawesome.com/c830bfa7c3.js" crossorigin="anonymous"></script>
+
+
+
+    </head>
+
+    <body>
+        <canvas id="canvas1"></canvas>
+
+        <header class="header">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./image/owl.png" alt="Logo Hugo Vincent" href="./index.html">
+                </a>
+            </div>
+
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger">
+
+                </span>
+
+            </button>
+
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="./index.html#acceuil" class="nav__link">Acceuil</a></li>
+                    <li class="nav__item"><a href="./index.html#competences" class="nav__link">Mes compétences</a></li>
+                    <li class="nav__item"><a href="./index.html#moi" class="nav__link">Sur moi</a></li>
+                    <li class="nav__item"><a href="./index.html#projets" class="nav__link">Mes projets</a></li>
+                    <li class="nav__item"><a href="./index.html#footer" class="nav__link">Me contacter</a></li>
+                    <li class="nav__item"><a href="./en.html" class="nav__link">
+                        En <i class="fas fa-language"></i></a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Introduction -->
+        <section class="intro" id="acceuil">
+            <h1 class="secton__title section__title--intro">
+                Les <strong>Jeux de Génie</strong>
+            </h1>
+            <p class=" section__subtitle section__subtitle--intro"> Mes projets </p>
+            <img src="./image/jdg/jdgets.png" alt="une photo de Hugo Vincent" width="300px">
+        </section>
+
+        <div class = "portfolio-item-individual">
+            <p>
+                Les <a href="https://jeuxdegenie.qc.ca/jdg/2021/" target="_blank">Jeux de Génie du Québec<a> sont la plus grande compétition d’ingénierie 
+                    au Québec et le plus important rassemblement étudiant de génie de la province. 
+            </p>
+            <br>
+            <p>
+                Lors de l'édition 2020, j’ai été sélectionné pour faire partie des 45 étudiants représentant les 
+                <a href="https://jdgets.com/" target="_blank">Jeux de Génie de l'ÉTS</a>.
+            </p>
+            <p>    
+                En tant que participant j’ai dû montrer mes habiletés académiques, techniques, sportives et sociales au cours des différentes 
+                journées d'épreuve. Pour ma part, j’ai participé à la <a href ="./ebag.html"target="_blank" >compétition d’entrepreneuriat</a> et 
+                la compétition de génie informatique.
+            </p>
+            <br>
+            <p>
+                Pour la compétition d’entrepreneuriat, nous avons fini 1ers sur 11
+                <br>
+                Pour la compétition de génie informatique, nous avons fini 2e sur 11
+            </p>
+
+            <p>
+                <a href = "https://jeuxdegenie.qc.ca/jdg/2020/" target="_blank" class="portfolio-item-individual__link">edition 2020</a>
+                <br>
+                <a href = "https://jeuxdegenie.qc.ca/jdg/2021/" target="_blank">edition 2021</a>
+            </p>
+            <img src = "image/jdg/wow.jpg" alt="">
+        </div>
+
+
+        
+        <!-- footer -->
+        <footer>
+
+            <a href="mailto:contact@hugovincent.dev" class="footer-link" id="footer">contact@hugovincent.dev</a>
+            <ul class="social-list">
+
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://www.linkedin.com/in/hugovincent/" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </li>
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://github.com/hugoVincent98" target="_blank">
+                        <i class="fab fa-github-alt"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <a class="language" href="./en.html">
+                En<i class="fas fa-language"></i>
+            </a>
+        </footer>
+
+
+        <script src='./script/background.js'></script>
+        <script src='./script/index.js'></script>
+    </body>
+
+</html>

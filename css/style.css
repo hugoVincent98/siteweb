@@ -236,7 +236,6 @@ h3 {
 .intro {
 
     position: relative;
-    background-image: url("../image/graph.png");
     background-repeat: no-repeat;
     background-size: cover;    
 }
@@ -435,4 +434,24 @@ footer a{
     font-weight: var(--fw-bold);
     position: absolute;
     right: 2em;    
+}
+
+/* Individual portfolio item styles */
+.portfolio-item-individual{
+    background:rgba(255, 255, 255, 0.616);
+    padding: 0 2em 2em;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.portfolio-item-individual p {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.portfolio-item-individual li {
+    max-width: 700px;
+    margin-left: 200px;
+    margin-right: auto;
 }
