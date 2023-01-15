@@ -376,17 +376,72 @@ h3 {
     overflow: hidden;
 }
 
-.portfolio__img{
-    transition: 
-        transform 750ms cubic-bezier(0.5, 0, 0.5, 1)
-        opacity 250ms linear;
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
-.portfolio__img:hover,
-.portfolio__item:focus .portfolio{
-    transform: scale(1.2);
-    opacity: .5;
+nav ul button {
+    --c: #16e0bd;
+    color: var(--c);
+    background-color: var(--clr-gray);
+    font-size: 16px;
+    border: 0.3em solid var(--c);
+    border-radius: 0.5em;
+    width: 20em;
+    height: 8em;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: sans-serif;
+    letter-spacing: 0.1em;
+    text-align: center;
+    line-height: 8em;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.5s;
+    margin: 1em;
 }
+
+nav ul button span {
+    position: absolute;
+    width: 25%;
+    height: 300%;
+    background-color: var(--c);
+    transform: translateY(150%);
+    border-radius: 50%;
+    left: calc((var(--n) - 1) * 25%);
+    transition: 0.5s;
+    transition-delay: calc((var(--n) - 1) * 0.1s);
+    z-index: -1;
+}
+
+nav ul button:hover {
+    color: black;
+}
+
+nav ul button:hover span {
+    transform: translateY(0) scale(2);
+}
+
+nav ul button span:nth-child(1) {
+    --n: 1;
+}
+
+nav ul button span:nth-child(2) {
+    --n: 2;
+}
+
+nav ul button span:nth-child(3) {
+    --n: 3;
+}
+
+nav ul button span:nth-child(4) {
+    --n: 4;
+}
+
+
 
 /*footer*/
 
