@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang='fr'>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+        <title>Portfolio d'Hugo Vincent</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awsome/5.11.2/css/all.css"
+            integrity="sha256-46qynGAKLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous">
+
+
+        <!--font-->
+        <link href="https://fonts.googleapis.com/css?family=source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap"
+            rel="stylesheet">
+
+        <link rel="stylesheet" href="./css/style.css">
+
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-NYQXJDFMFN"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-NYQXJDFMFN');
+        </script>
+
+        <link rel="icon" type="image/png" href="./image/owl.png" />
+
+        <script src="https://kit.fontawesome.com/c830bfa7c3.js" crossorigin="anonymous"></script>
+        <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+
+
+    </head>
+
+    <body>
+        <canvas id="canvas1"></canvas>
+
+        <header class="header">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./image/owl.png" alt="Logo Hugo Vincent" href="./index.html">
+                </a>
+            </div>
+
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger">
+
+                </span>
+
+            </button>
+
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="./index.html#acceuil" class="nav__link">Acceuil</a></li>
+                    <li class="nav__item"><a href="./index.html#competences" class="nav__link">Mes compétences</a></li>
+                    <li class="nav__item"><a href="./index.html#moi" class="nav__link">Sur moi</a></li>
+                    <li class="nav__item"><a href="./index.html#projets" class="nav__link">Mes projets</a></li>
+                    <li class="nav__item"><a href="./index.html#footer" class="nav__link">Me contacter</a></li>
+                    <li class="nav__item"><a href="./en.html" class="nav__link">
+                        En <i class="fas fa-language"></i></a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Introduction -->
+        <section class="intro" id="acceuil">
+            <h1 class="secton__title section__title--intro">
+                <strong>AI</strong> pour jeu de breakthrough
+            </h1>
+            <p class=" section__subtitle section__subtitle--intro"> Mes projets </p>
+            
+        </section>
+
+        <div class = "portfolio-item-individual">
+            <p>Le jeu de « Breakthrough » est un jeu à deux joueurs qui se joue sur un plateau de 8X8. 
+                La simplicité des règles a permis à ce jeu de gagner la compétition "8x8 Game Design Competition" en 2001. 
+                Malgré cette simplicité, la maîtrise de ce jeu demande l'élaboration d'une stratégie évoluée et à long terme. 
+                De plus, les règles du jeu font en sorte qu'il est mathématiquement impossible d'avoir un match nul. </p>
+            
+                <p>Les objectifs de ce laboratoire sont :</p>
+                <ul>
+                    <li>Implémentation de l’algorithme minimax et alpha-beta</li>
+                    <li>Implémentation d’heuristiques pour le jeu de Breakthrough</li>
+                    <li>Exploration et implémentation de différentes stratégies afin d’améliorer l’efficacité de votre algorithme de décision</li>
+                </ul>
+            
+            <strong>Voici une partie de l'implémentation pour l'algorithme minimax</strong>
+            <pre class="prettyprint">
+
+                // || hasFourSecondPassed()
+                if (depth > MAXDEPTH) {
+                    return 0;
+                }
+        
+                // to Maximize
+                if (isMax) {
+                    int meilleurScore = MIN;
+                    // on crée un générateur avec le nouveau board
+                    // pour récupérer la liste des moves possible sur ce dernier
+                    GenerateurMove tempGen = gen.newInstance(board);
+                    List<Move> myMoves = tempGen.obtenirListeMoves();
+                    // pour chaque mouvements possible
+                    for (Move move : myMoves) {
+        
+                        int score = getValueOfBoard(move.getBoard(), move, depth, toMax);
+        
+                        // on effectue le déplacement dans le board
+                        move.makeMove();
+                        score += miniMax(move.getBoard(), depth + 1, false, alpha, beta);
+        
+                        // si ce mouvement a un meilleur score que le meilleur score actuelle
+                        // on le garde en mémoire
+                        meilleurScore = Math.max(score, meilleurScore);
+                        alpha = Math.max(alpha, score);
+        
+                        if (alpha >= beta) {
+                            break;
+                        }
+                    }
+                    return alpha;
+                    // toMinimize
+                } else {
+                    int meilleurScore = MAX;
+                    GenerateurMove tempCounterGen = counterGen.newInstance(board);
+                    List<Move> myMoves = tempCounterGen.obtenirListeMoves();
+        
+                    for (Move move : myMoves) {
+                        move.makeMove();
+                        //int score = getValueOfBoard(move.getBoard(), move, depth, toMin);
+                        int score = miniMax(move.getBoard(), depth + 1, true, alpha, beta);
+        
+                        meilleurScore = Math.min(score, meilleurScore);
+                        beta = Math.min(beta, score);
+                        if (alpha >= beta) {
+                            break;
+                        }
+                    }
+                    return meilleurScore;
+                }
+            }
+            
+            </pre>
+
+            <Strong>Si vous désirer voir le programme au complet veillez me contacter par courriel!</Strong>
+
+        </div>
+
+
+        
+        <!-- footer -->
+        <footer>
+
+            <a href="mailto:contact@hugovincent.dev" class="footer-link" id="footer">contact@hugovincent.dev</a>
+            <ul class="social-list">
+
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://www.linkedin.com/in/hugovincent/" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </li>
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://github.com/hugoVincent98" target="_blank">
+                        <i class="fab fa-github-alt"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <a class="language" href="./en.html">
+                En<i class="fas fa-language"></i>
+            </a>
+        </footer>
+
+
+        <script src='./script/background.js'></script>
+        <script src='./script/index.js'></script>
+    </body>
+
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang='fr'>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+        <title>Portfolio d'Hugo Vincent</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awsome/5.11.2/css/all.css"
+            integrity="sha256-46qynGAKLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous">
+
+
+        <!--font-->
+        <link href="https://fonts.googleapis.com/css?family=source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap"
+            rel="stylesheet">
+
+        <link rel="stylesheet" href="./css/style.css">
+
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-NYQXJDFMFN"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-NYQXJDFMFN');
+        </script>
+
+        <link rel="icon" type="image/png" href="./image/owl.png" />
+
+        <script src="https://kit.fontawesome.com/c830bfa7c3.js" crossorigin="anonymous"></script>
+        <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+
+
+    </head>
+
+    <body>
+        <canvas id="canvas1"></canvas>
+
+        <header class="header">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./image/owl.png" alt="Logo Hugo Vincent" href="./index.html">
+                </a>
+            </div>
+
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger">
+
+                </span>
+
+            </button>
+
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="./index.html#acceuil" class="nav__link">Acceuil</a></li>
+                    <li class="nav__item"><a href="./index.html#competences" class="nav__link">Mes compétences</a></li>
+                    <li class="nav__item"><a href="./index.html#moi" class="nav__link">Sur moi</a></li>
+                    <li class="nav__item"><a href="./index.html#projets" class="nav__link">Mes projets</a></li>
+                    <li class="nav__item"><a href="./index.html#footer" class="nav__link">Me contacter</a></li>
+                    <li class="nav__item"><a href="./en.html" class="nav__link">
+                        En <i class="fas fa-language"></i></a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Introduction -->
+        <section class="intro" id="acceuil">
+            <h1 class="secton__title section__title--intro">
+                Recherche de <strong>mot</strong> 
+            </h1>
+            <p class=" section__subtitle section__subtitle--intro"> Mes projets </p>
+            
+        </section>
+
+        <div class = "portfolio-item-individual">
+            <p>Le mot mystère est un jeu qui consiste à trouver une liste de mots dans une grille remplie de lettres.
+                Les mots peuvent être trouvés horizontalement, verticalement, en oblique, à l’endroit ou à l’envers.
+                Ils peuvent s’entrecouper et une même lettre peut faire partie de plusieurs mots de la grille.
+                À la fin du jeu, lorsque tous les mots de la liste ont été trouvés, les lettres de la grille qui ne sont
+                pas utilisées permettent de former le mot mystère à trouver. Dans ce laboratoire, le travail que vous devez 
+                faire est un peu différent d’un mot mystère. Vous devez concevoir un algorithme qui extrait les mots d’une 
+                grille de dimension NxN. Seuls les mots provenant d’un dictionnaire fourni avec la grille doivent être trouvés. 
+                Par contre, contrairement aux mots mystères classiques, ce ne sont pas tous les mots du dictionnaire qui sont dans la grille. 
+                Le travail consiste donc à déterminer quels mots du dictionnaire se trouvent dans la grille. </p>
+            
+                <p>Les objectifs de ce laboratoire sont :</p>
+                <ul>
+                    <li>Conception d’un algorithme pour résoudre un problème donné</li>
+                    <li>Implémentation efficace d’algorithmes</li>
+                    <li>Analyse asymptotique</li>
+                    <li>Être en mesure de justifier les choix de conception</li>
+                </ul>
+            
+            <strong>Voici une partie de l'implémentation qui permet d'insèrer un mot dans l'arbre(structure de donnnée)</strong>
+            <pre class="prettyprint">
+                
+                char[] myWord = new char[word.length()];
+                //System.out.println("the word is: "+ word);
+          
+                char firstChar = word.charAt(0);
+                //cherche si un enfant contient le first char et retourne le node(null si ne trouve pas de noeud)
+                Node firstNode = root.findChild(firstChar);
+          
+                if(firstNode == null){
+                   //System.out.println(firstChar+ " n'est pas encore dans le premier niveau");
+                   firstNode = new Node(firstChar,root);
+                   root.addChild(firstNode);
+                }
+          
+                Node previousNode = firstNode;
+                Node myNode = new Node(' ',null);
+          
+                for (int i = 1; i < word.length(); i++) { 
+                   myWord[i] = word.charAt(i);
+          
+                   //si le charactere n'est pas un enfant de previous node 
+                   if(previousNode.findChild(myWord[i]) == null || myWord[i-1] == myWord[i]){
+                      //System.out.println(myWord[i]+" added");
+          
+                      myNode = new Node(myWord[i], previousNode);
+                      previousNode.addChild(myNode);
+          
+                   }else if(previousNode.findChild(myWord[i]) != null){
+                      //System.out.println(myWord[i]+" already there");
+                      myNode = previousNode.findChild(myWord[i]);
+                   }
+                   previousNode = myNode;
+               }
+               previousNode.isWord(true);
+            
+            </pre>
+
+            <Strong>Si vous désirer voir le programme au complet veillez me contacter par courriel!</Strong>
+
+        </div>
+
+
+        
+        <!-- footer -->
+        <footer>
+
+            <a href="mailto:contact@hugovincent.dev" class="footer-link" id="footer">contact@hugovincent.dev</a>
+            <ul class="social-list">
+
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://www.linkedin.com/in/hugovincent/" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </li>
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://github.com/hugoVincent98" target="_blank">
+                        <i class="fab fa-github-alt"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <a class="language" href="./en.html">
+                En<i class="fas fa-language"></i>
+            </a>
+        </footer>
+
+
+        <script src='./script/background.js'></script>
+        <script src='./script/index.js'></script>
+    </body>
+
+</html>
