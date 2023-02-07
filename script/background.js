@@ -10,7 +10,7 @@ let particulesArray;
 let mouse = {
     x: null,
     y: null,
-    radius: (canvas.height/80) * (canvas.height/80)
+    radius: (canvas.height/90) * (canvas.height/90)
 }
 
 window.addEventListener('mousemove',
@@ -57,7 +57,7 @@ class Particule{
                 this.x += 1;
             }
             if(mouse.x > this.x && this.x > this.size * 2){
-                this.x+= 1;
+                this.x-= 1;
             }
             if(mouse.y < this.y && this.y < canvas.height - this.size * 2){
                 this.y += 1;
