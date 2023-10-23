@@ -78,7 +78,7 @@
 
     <div class="portfolio-item-individual">
         <p>
-            Le projet de serre hydroponique connecté<embed src="" type=""> a commencé dans le cadre de la
+            <strong>Le projet de serre hydroponique</strong> connecté a commencé dans le cadre de la
             compétition d’entreprenariat des jeux de génie 2023. Nous devions bâtir
             une entreprise ou un projet qui a pour mission centrale l’économie et le
             commerce circulaire. Nous avons donc décidé de nous lancer dans une serre
@@ -104,7 +104,7 @@
         </p>
 
         <br>
-        <img src="image/projectIMG/Modulaire2.JPG" alt="">
+        <img src="image\serreHydo\Modulaire2.JPG" alt="">
         <br>
 
         <p>
@@ -115,7 +115,7 @@
         <p>
             Étant un projet que nous croyons beaucoup en sont potentiel. Nous avons quand même décidé de continuer le
             projet, notamment pour notre
-            projet de fin d’étude, qui est présentement en cours. Dans notre projet de fin d’étude, nous désirons
+            projet de fin d’étude. Dans notre projet de fin d’étude, nous voulions
             finaliser la conception du produit
             au niveau mécanique pour avoir un produit commercialisable par la suite.
         </p>
@@ -124,8 +124,73 @@
             Au niveau TI et électrique nous désirons concevoir et implémenter la base de notre système informatique
             (embarqué et cloud) pour permettre le développement futur du produit pour des capacité de système IOT.
         </p>
-        <img src="image/projectIMG/architecture cloud serre hydroponique.jpeg" alt="">
         <br>
+        <strong>Besoins clients:</strong><br>
+        <p>
+    
+            Dans le cadre de la section technologies de l’information, les besoins avant le PFE n’étaient pas bien détaillés. Le promoteur désirait connecter la serre afin de la contrôler par wifi via une application. À la suite d’un échange avec le promoteur, nous avions identifié 4 besoins TI qui devaient être mis de l’avant initialement dans le cadre de ce projet de fin d’études :
+            <ul>
+            <li>Contrôle à distance de la serre</li>
+            <li>Renseigner l’utilisateur sur le pH, la température et le taux d’azote</li>
+            <li>Application web simple d’utilisation</li>
+            <li>Déterminer le positionnement des sondes et capteurs dans la base.</li>
+            </ul>
+        </p>
+        <br>
+        <img src="image\serreHydo\architecture cloud serre hydroponique final.png" alt="">
+
+        <strong>Solution finale:</strong><br>
+        <p>
+            Dans la solution finale, le Raspberry Pi communique directement avec AWS Iot Core grâce à un certificat et au SDK de AWS. Le Raspberry Pi à 2 scripts python, dont un qui permet de recevoir les commandes et l’autre qui publie une mise à jour des données des capteurs à chaque 5 secondes.<br>
+            AWS Iot core permet de contrôler les 2 topics MQTT. Premièrement, « Serre/cmd/ » , qui achemine les commandes vers le Raspberry Pi. Deuxièmement, « Serre/dt/ », qui achemine les données vers la fonction lambda SerreData. Dans l’infrastructure finale, la fonction Lambda SerreData permet de structurer et s’assurer de la normalisation des données pour envoyer les données dans la base de données DynamoDB SerreDB.
+            Lorsqu’un utilisateur veut accéder au contrôle de la serre à distance et les informations de cette dernière il doit passer par API qui a été implémenter avec le service Amazon API Gateway. L’API, nommé « serverless-api », permet 2 types de requêtes.<br>
+            Premièrement, un POST qui est directement sur l’URL de base et qui permet de publier une commande pour une serre à l’aide de la fonction lambda Web_app_get.<br>
+            Deuxièmement, un GET qui est atteignable via /serre?id= avec un numéro d’id de serre. Elle permet d’accéder à l’état de la serre la plus récente via la fonction lambda serverless-api-lambda. La fonction serverless-api-lambda va chercher dans la base de données dynamoDB, les données qui sont associées à l’id passé en paramètre
+        </p>
+        
+        <strong>Analyse de la solution finale:</strong><br>
+        <p>
+            <strong>Infrastructure:</strong><br>
+            <br>
+            Le projet ayant été en grande majorité de l’infrastructure infonuagique, c’est dans cette sphère qui à eux le plus d’avancement. L’implémentation de AWS Iot Core a été fait directement via l’interface du service sur AWS. Un type d’objet SerrePFE a été ajouté, pour représenter les serres. De ce type d’objet, un objet a été créé, soit l’objet Serre1. L’objet ayant été créer directement dans l’interface du service nous n’avons donc pas automatisé le processus pour créer une flotte de serre. Il faudra donc utiliser un script, pour permet de facilement déployer les certificats et script pour une utilisation de mise en marché. <br>
+            De plus, il serait recommandable d’ajouter la fonctionnalité de « Shadows » d’appareil qui permet de garder les commandes et l’état du système lorsque la serre n’est pas connectée. En d’autres mots, de représenter de façon virtuelle la serre pour ne pas perdre de commandes.<br><br>
+            Un autre point à relever au niveau de l’infrastructure est l’utilisation d’une fonction Lambda entre Iot Core et la base de données Amazon DynamoDB. En effet, dans l’implémentation actuelle, la fonction permet d’assurer la structure de la donnée et de transmettre par après les données dans la base de données. Cependant, ce service n’est pas obligatoire et pourrait être remplacé par la fonctionnalité de routage de messages de Iot Core. Il serait possible de définir une règle directement dans le service Iot Core qui transmettrait les données directement au service DynamoDB pour l’ajouter à la base de données. Ce changement permettrait de réduire les couts qui pourraient découler de la grande quantité de données qui passerait dans le service. À long terme, l’implémentation actuelle risque de ne pas être soutenable au niveau économique.<br>
+            Il faudra aussi implémenter les services qui vont soutenir le reste de l’application web et mobile. Il sera possible de passer par l’API qui a été créer lors de ce PFE. Cependant, il faudra définir une infrastructure pour soutenir l’application en tant que telle. AWS Amplify serait un excellent service pour débuter ce genre d’application et s’intégrait très bien avec le système actuel.<br><br>
+            Finalement, il serait aussi recommandable de revoir la sécurité du système et des autorisations données actuellement au différent service pour réduire les accès au stricte minimum et donc limité le risque que des personnes malveillantes abusent des accès actuels (qui ont été implémenter pour faciliter le développement de la preuve de concept). De plus, faire une vérification de la possibilité que des abuseurs utilisent de la pollution de paramètre (Http Parameter Pollution) et de la manipulation d’URL pour prendre avantage des requetés actuels, car elles ont été encore une fois développées pour faciliter le développement de la preuve de concept. En d’autres mots revoir si le système respect bien les bonnes pratiques des différents services de AWS.<br>
+            <br>
+            <br>
+            <strong>Structure du code:</strong><br>
+            <br>
+            <img src="image\serreHydo\structure de code.PNG" alt="">
+            <br>
+            Raspberry Pi:<br>
+            Lorsque nous regardons le code qui soutiens l’infrastructure sur le Raspberry Pi, nous pouvons remarquer 2 scripts python qui doivent être en fonction pour que le système fonctionne. Tous les configurations et programmes utiles à la serre se trouvent dans le dossier iot-test.  Ce dossier contient aussi les certificats nécessaires pour permettre au script de communiquer avec AWS.<br><br>
+            Le premier script, iot-sender.py, est un script qui permet d’envoyer les données des capteurs à chaque 5 secondes. Le script fait simplement lire les données des capteurs à l’aide du module RPI.GPIO. À la suite de la lecture, il structure les données dans un json. Finalement, il transmet l’information au topic Serre/dt/ de AWS Iot Core avec les certificats à l’aide du module pahoi.mqtt.client. <br><br>
+            Le deuxième script, iot-receiver.py, est un script qui permet de recevoir les commandes qui proviennent de AWS Iot Core. Le script utilise une fois de plus le SDK python de AWS et un certificat pour être en mesure de recevoir les commandes. En utilisant le SDK, nous implémentons un client MQTT qui est prêt à recevoir des commandes par le topic Serre/cmd/ de AWS Iot Core. Pour finalement traiter la commande et apporter les changements au comportement de la serre.<br>
+            <br><br><br>
+            Lambda:<br>
+            Du côté de AWS Lambda, nous avons 3 fonctions qui soutiennent l’infrastructure. Ils ont été notamment été présenté sommairement dans la section de l’infrastructure. Comme expliquer plutôt, il serait possible d’enlever la fonction Lambda SerreData pour éliminer les frais qui en découle.<br>
+            Nous avons, donc, la fonction Lambda SerreData, qui a comme responsabilité de publier les données qui passent dans le topic AWS Iot Core « Serre/dt/ » vers la base de données SerreDB qui est dans le service DynamoDB. La fonction utilise le module boto3 pour publier vers DynamoDB.<br><br>
+            Deuxièmement, nous avons la fonction Lambda serverless-api-lambda, qui a comme responsabilité d’aller chercher les données de la serre demandée par l’API dans la base de données. Elle utilise le module boto3 qui permet d’interagir avec les ressources dynamoDB directement dans Lambda. Il suffit de configurer les autorisations de son rôle pour avoir accès sur toutes les ressources de DynamoDB (AmazonDynamoDBFullAccess). <br>
+            Pour l’instant, la base de données doit retourner une seule ligne, car sinon il y a aura une erreur interne dans le cette fonction. Pour les cadres de ce PFE, il n’y a pas de besoins pour avoir accès à l’historique, mais ça pourrait être un ajout très intéressant à faire pour améliorer le système.<br>
+            La fonction Lambda est déclenchée lorsqu’une requête GET est passée à l’API Gateway « serverless-api ». Une fois lancer, la fonction Lambda sort le id passé en paramètre par l’API pour par la suite déclencher la fonction getSerre(serreId) qui va chercher dans la table DynamoDB l’information de la serre. Par la suite la fonction getSerre appelle la fonction buildResponse(statusCode, body=none), qui construit la réponse qui sera envoyée en retour vers l’API en utilisant la classe custom_encoder.py qui permet d’encoder les valeurs avec une décimale dans un json.<br><br>
+            Troisièmement, nous avons implémenté la fonction Lambda Web_app_get, qui a comme responsabilité d’envoyé la commande passée à l’API vers le topic AWS Iot Core « Serre/dt/ ». La fonction utilise boto3 pour communiquer avec le service AWS Iot Core. Il y a quelque point qui devrait être pris en considérations avant de mettre le service en production. En un premier temps, la commande envoyé vers « Serre/cmd/ » affectera toutes les serres qui écoutent sur ce topic. En d’autres mots, il faudra implémenter une façon de séparer les commandes pour affecter seulement la serre concernée. Une des options est d’ajouter une information de plus au nom du topic pour identifier de façon unique la serre concernée. De plus, il sera important de vérifier si une personne malicieuse pourrait prendre profit de l’implémentation actuelle pour envoyer des commandes vers d’autre serre simplement en passant des informations malicieuses en message vers l’API.<br>
+            <br>
+            <br>
+            <strong>Base de données:</strong><br>
+            <br>
+            <img src="image\serreHydo\db.PNG" alt="">
+            La base de données DynamoDB dans notre infrastructure a été implémentée directement dans l’interface utilisateur de AWS. La Clé primaire de notre table est l’id de la serre qui est un nombre. Comme dans notre implémentation actuelle il n’y a pas de clé de tri, chaque id de serre peut avoir une seule ligne. En d’autres mots, il n’y a pas d’historique qui est gardé dans la table. Si le désir d’ajouter l’historique des données dans cette table était présent, il suffirait d’ajouter le « timestamp » comme clé de tri ce qui permettrait de garder l’historique. Par contre, avec cette solution nous avons un autre problème et c’est celui de la grande quantité de données que le système produit. En effet, comme chaque serre produit une nouvelle ligne de données à chaque 5 secondes, plus la quantité de serres utilisée augmente plus la quantité de données augmente. Comme DynamoDB est un service qui est couteux lorsque nous utilisons une grande quantité de données, il serait bénéfique d’analyser les alternatives offertes par AWS.  Pour limiter la quantité de données garder dans la table, il serait possible d’utiliser la durée de vie (TTL) des données pour limiter la quantité de données. De plus, il serait intéressant d’utiliser un service comme S3 pour entreposer les données, qui ne sont plus actives. En effet, ce service nous permettrait de garder l’historique de données en limitant les couts qui découleraient de cette fonctionnalité.
+            <br>
+            <br>
+            <strong>Côté client - « Front End »:</strong><br>
+            <br>
+            <img src="image\serreHydo\front end.PNG" alt="">
+            <br>
+            Il y a eu malheureusement un manque de temps dans ce PFE pour développer une interface utilisateur qui allait permettre à un usager d’interagir de façon intuitive avec ça serre hydroponique. Il serait simple d’ajouter une interface utilisateur au système grâce à l’API qui a été conçue dans le cadre de ce projet. De plus, un service comme Amazon Amplify pourrait grandement aider le développement de l’application web et faciliterait l’intégration avec l’implémentation de la solution actuelle.
+        
+        
+        </p>
     </div>
 
 
