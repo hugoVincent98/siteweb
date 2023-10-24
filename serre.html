@@ -179,13 +179,13 @@
             <br>
             <strong>Base de données:</strong><br>
             <br>
-            <img src="image\serreHydo\db.PNG" alt="">
+            <img src="image\serreHydo\db.png" alt="">
             La base de données DynamoDB dans notre infrastructure a été implémentée directement dans l’interface utilisateur de AWS. La Clé primaire de notre table est l’id de la serre qui est un nombre. Comme dans notre implémentation actuelle il n’y a pas de clé de tri, chaque id de serre peut avoir une seule ligne. En d’autres mots, il n’y a pas d’historique qui est gardé dans la table. Si le désir d’ajouter l’historique des données dans cette table était présent, il suffirait d’ajouter le « timestamp » comme clé de tri ce qui permettrait de garder l’historique. Par contre, avec cette solution nous avons un autre problème et c’est celui de la grande quantité de données que le système produit. En effet, comme chaque serre produit une nouvelle ligne de données à chaque 5 secondes, plus la quantité de serres utilisée augmente plus la quantité de données augmente. Comme DynamoDB est un service qui est couteux lorsque nous utilisons une grande quantité de données, il serait bénéfique d’analyser les alternatives offertes par AWS.  Pour limiter la quantité de données garder dans la table, il serait possible d’utiliser la durée de vie (TTL) des données pour limiter la quantité de données. De plus, il serait intéressant d’utiliser un service comme S3 pour entreposer les données, qui ne sont plus actives. En effet, ce service nous permettrait de garder l’historique de données en limitant les couts qui découleraient de cette fonctionnalité.
             <br>
             <br>
             <strong>Côté client - « Front End »:</strong><br>
             <br>
-            <img src="image\serreHydo\front end.PNG" alt="">
+            <img src="image\serreHydo\front end.png" alt="">
             <br>
             Il y a eu malheureusement un manque de temps dans ce PFE pour développer une interface utilisateur qui allait permettre à un usager d’interagir de façon intuitive avec ça serre hydroponique. Il serait simple d’ajouter une interface utilisateur au système grâce à l’API qui a été conçue dans le cadre de ce projet. De plus, un service comme Amazon Amplify pourrait grandement aider le développement de l’application web et faciliterait l’intégration avec l’implémentation de la solution actuelle.
         
